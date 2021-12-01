@@ -59,8 +59,6 @@ def wait_for_movement_completion(ser,cleaned_line):
 
             if grbl_response != 'ok':
 
-                print(grbl_response)
-
                 if grbl_response.find('Idle') > 0:
                     idle_counter += 1
 
