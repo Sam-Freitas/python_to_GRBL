@@ -19,15 +19,14 @@ run:
 
 ---------------------------------------------------------------
 
-tested on
-> MacOs (M1 Monterey arm64)
-> 
-> Python 3.9.5 | packaged by conda-forge | (default, Jun 19 2021, 00:24:55) [Clang 11.1.0 ] on darwin
-> 
-> Vscode 1.62.3
-> 
-> Openbuilds BlackBox GRBL controller
-> 
-> GRBL 1.1
+tested on:
+
+```
+MacOs (M1 Monterey arm64)
+Python 3.9.5 | packaged by conda-forge | (default, Jun 19 2021, 00:24:55) [Clang 11.1.0 ] on darwin
+Vscode 1.62.3
+Openbuilds BlackBox GRBL controller
+GRBL 1.1
+```
 
 ![Alt Text](https://github.com/Sam-Freitas/python_to_GRBL/blob/main/readme_deps/9EC680F1-AE1E-4AD0-9828-93B54D571714%20(1).gif)
