@@ -6,7 +6,10 @@ It then reads the grbl_test.gcode and sends it to the controller
 The script waits for the completion of the sent line of gcode before moving onto the next line
 
 tested on
-> MacOs
+> MacOs Monterey arm64
+> Python 3.9.5 | packaged by conda-forge | (default, Jun 19 2021, 00:24:55) 
+[Clang 11.1.0 ] on darwin
+> Vscode 1.62.3
 > Openbuilds BlackBox GRBL controller
 > GRBL 1.1
 
@@ -65,9 +68,9 @@ def wait_for_movement_completion(ser,cleaned_line):
     return
 
 
-def stream_gcode():
+def stream_gcode(GRBL_port_path,gcode_path):
     # with contect opens file/connection and closes it if function(with) scope is left
-    with open(args.file, "r") as file, serial.Serial(args.port, BAUD_RATE) as ser:
+    with open(gcode_path, "r") as file, serial.Serial(GRBL_port_path, BAUD_RATE) as ser:
         send_wake_up(ser)
         for line in file:
             # cleaning up gcode from file
@@ -88,15 +91,13 @@ def stream_gcode():
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description='This is a basic gcode sender. http://crcibernetica.com')
-    parser.add_argument('-p', '--port', help='Input USB port', default= '/dev/tty.usbserial-A906L14X')
-    parser.add_argument('-f', '--file', help='Gcode file name', default = 'grbl_test.gcode')
-    args = parser.parse_args()
+
+    GRBL_port_path = '/dev/tty.usbserial-A906L14X'
+    gcode_path = 'grbl_test.gcode'
     ## show values ##
-    print("USB Port: %s" % args.port)
-    print("Gcode file: %s" % args.file)
-    stream_gcode()
+    print("USB Port: ", GRBL_port_path)
+    print("Gcode file: ", gcode_path)
+    stream_gcode(GRBL_port_path,gcode_path)
 
     print('EOF')
     # Event().wait(1)
