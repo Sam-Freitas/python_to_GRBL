@@ -17,7 +17,6 @@ tested on
 
 import serial
 import time
-import argparse
 from threading import Event
 
 BAUD_RATE = 115200
@@ -60,6 +59,8 @@ def wait_for_movement_completion(ser,cleaned_line):
 
             if grbl_response != 'ok':
 
+                print(grbl_response)
+
                 if grbl_response.find('Idle') > 0:
                     idle_counter += 1
 
@@ -76,28 +77,24 @@ def stream_gcode(GRBL_port_path,gcode_path):
             # cleaning up gcode from file
             cleaned_line = remove_eol_chars(remove_comment(line))
             if cleaned_line:  # checks if string is empty
-                # ser.flush()
-                # print(f"Sending gcode: {gcode}")
                 print("Sending gcode:" + str(cleaned_line))
                 # converts string to byte encoded string and append newline
                 command = str.encode(line + '\n')
                 ser.write(command)  # Send g-code
                 grbl_out = ser.readline()  # Wait for response with carriage return
-                print(f" : {grbl_out.strip().decode('utf-8')}")
+                print(" : " , grbl_out.strip().decode('utf-8'))
 
                 wait_for_movement_completion(ser,cleaned_line)
-
-
-
+        
+        print('End of gcode')
 
 if __name__ == "__main__":
 
     GRBL_port_path = '/dev/tty.usbserial-A906L14X'
     gcode_path = 'grbl_test.gcode'
-    ## show values ##
+
     print("USB Port: ", GRBL_port_path)
     print("Gcode file: ", gcode_path)
     stream_gcode(GRBL_port_path,gcode_path)
 
     print('EOF')
-    # Event().wait(1)
