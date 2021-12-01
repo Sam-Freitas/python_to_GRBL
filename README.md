@@ -1,4 +1,4 @@
-# Controlling CNC machines with python
+# Controlling GRBL CNC machines with python
 
 This simple implementation is an example of how to contol CNC machines running GRBL with python 
 
