@@ -28,4 +28,4 @@ tested on
 > 
 > GRBL 1.1
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://github.com/Sam-Freitas/python_to_GRBL/blob/main/readme_deps/9EC680F1-AE1E-4AD0-9828-93B54D571714%20(1).gif)
