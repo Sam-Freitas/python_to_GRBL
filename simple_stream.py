@@ -44,7 +44,7 @@ def wait_for_movement_completion(ser,cleaned_line):
 
     Event().wait(1)
 
-    if cleaned_line != '$X':
+    if cleaned_line != '$X' or '$$':
 
         idle_counter = 0
 
@@ -79,10 +79,13 @@ def stream_gcode(GRBL_port_path,gcode_path):
                 # converts string to byte encoded string and append newline
                 command = str.encode(line + '\n')
                 ser.write(command)  # Send g-code
+
+                wait_for_movement_completion(ser,cleaned_line)
+
                 grbl_out = ser.readline()  # Wait for response with carriage return
                 print(" : " , grbl_out.strip().decode('utf-8'))
 
-                wait_for_movement_completion(ser,cleaned_line)
+                
         
         print('End of gcode')
 

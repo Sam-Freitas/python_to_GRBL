@@ -6,6 +6,8 @@ This script converts the supplied .gcode into movement without the use of a dedi
 
 I built this becuase a lot of the documentation for sending a stream of gcode to a grbl controller was written in python2 and no longer worked with python3 syntax. Additionally, many of the implementations did not buffer or wait for commands to finish before going onto the next, my script is an attempt to fix these issues
 
+All tweaking and setup of the grbl controller should be done in an outside program (I recommend CNCjs), all this script does is read grbl_test.gcode and feeds each individual line to the grbl controller, waits for completion of said line, and then moves onto the next line of gcode
+
 ---------------------------------------------------------------
 
 How to use
