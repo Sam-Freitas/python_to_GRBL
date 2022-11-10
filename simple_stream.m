@@ -75,7 +75,6 @@ if ~isequal(cleaned_line,'$X') && ~isequal(cleaned_line,'$$')
     while 1
         
         %             # Event().wait(0.01)
-        disp('?')
         flush(ser,"input")
         command = char(['?\n']);
         writeline(ser,command)
