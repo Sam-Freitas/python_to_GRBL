@@ -5,7 +5,7 @@ warning('off','serialport:serialport:ReadlineWarning');
 clear all
 close all force hidden
 
-GRBL_com_port = "COM4";
+GRBL_com_port = "COM3";
 gcode_path = "grbl_test.gcode";
 BAUD_RATE = 115200;
 
@@ -75,6 +75,7 @@ if ~isequal(cleaned_line,'$X') && ~isequal(cleaned_line,'$$')
     while 1
         
         %             # Event().wait(0.01)
+        disp('?')
         flush(ser,"input")
         command = char(['?\n']);
         writeline(ser,command)
@@ -91,6 +92,9 @@ if ~isequal(cleaned_line,'$X') && ~isequal(cleaned_line,'$$')
         if idle_counter > 10
             break
         end
+
+        pause(0.2) % in the GRBL documentation it reccomends a 5Hz rate for the '?' command
+
     end
     
 end
