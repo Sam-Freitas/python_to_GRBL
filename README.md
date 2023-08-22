@@ -1,4 +1,4 @@
-# Controlling GRBL/CNC/gcode machines with python
+# Controlling GRBL/CNC/gcode machines with python or MATLAB
 
 This simple implementation is an example of how to contol CNC machines running GRBL with python 
 
