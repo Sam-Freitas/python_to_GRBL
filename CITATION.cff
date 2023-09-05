@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: python_to_GRBL
+message: Please Cite python_to_GRB: if Used
+type: software
+authors:
+  - given-names: Samuel
+    family-names: Freitas
+    email: samfreitas@arizona.edu
+    name-particle: Samuel
+    affiliation: University of Arizona
+    orcid: 'https://orcid.org/0000-0002-9129-4715'
+repository-code: 'https://github.com/Sam-Freitas/python_to_GRBL'
+abstract: This simple implementation is an example of how to contol CNC machines running GRBL with python. This script converts the supplied .gcode into movement without the use of a dedicated controlling application (e.g. CNCjs, OpenbuildsCONTROL, etc). I built this becuase a lot of the documentation for sending a stream of gcode to a grbl controller was written in python2 and no longer worked with python3 syntax. Additionally, many of the implementations did not buffer or wait for commands to finish before going onto the next, my script is an attempt to fix these issues. All tweaking and setup of the grbl controller should be done in an outside program (I recommend CNCjs), all this script does is read grbl_test.gcode and feeds each individual line to the grbl controller, waits for completion of said line, and then moves onto the next line of gcode
+keywords:
+  - CNC control
+  - GRBL
+  - python-robotics
+license: GPL-3.0
+commit: Beta release
+version: '0.1'
+date-released: '2021-12-1'
