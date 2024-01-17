@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: python_to_GRBL
-message: Please Cite python_to_GRB: if Used
+message: Please Cite if Used
 type: software
 authors:
   - given-names: Samuel
